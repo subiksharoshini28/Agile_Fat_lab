@@ -28,3 +28,10 @@ public class BookingService {
         return "SUCCESS: Room " + roomId + " cancelled.";
     }
 
+    public List<Integer> getAvailableRooms() {
+        return rooms.values().stream()
+                .filter(r -> !r.isBooked())
+                .map(Room::getRoomId)
+                .toList();
+    }
+}
