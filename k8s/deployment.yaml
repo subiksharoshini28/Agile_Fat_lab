@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-booking
+  template:
+    metadata:
+      labels:
+        app: hotel-booking
+    spec:
+      containers:
+      - name: hotel-container
+        image: your-docker-id/hotel-booking:latest
+        ports:
+        - containerPort: 8085
